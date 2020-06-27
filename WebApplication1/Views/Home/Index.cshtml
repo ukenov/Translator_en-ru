@@ -1,0 +1,50 @@
+﻿
+
+@model Translation
+<form asp-controller="Home" asp-action="Index" method="post">
+    <div class="form-group">
+        <div class="row">
+            <select asp-for="ChooseLanguage" class="col-lg-2" asp-items="Html.GetEnumSelectList<ChooseLanguage>()">
+                <option selected="selected" value="">Select</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" rows="7" input type="text" asp-for="InputTxt"></textarea>
+        </div>
+        <div class="row">
+            <input type="submit" value="Translate" asp-action="Index"/>
+        </div>
+        <div class="bottom-left">
+            <textarea class="form-control" cols="150" asp-for="CorectedLng" input type="text" disabled="disabled" textarea style="border: none; outline: none; box-shadow: none;" ></textarea>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" rows="7" input type="text" disabled="disabled" asp-for="Result"></textarea>
+        </div>
+    </div>
+</form>
+
+<style>
+    .form-group {
+        margin-top: 5px;
+    }
+
+    .row {
+        margin-top: 10px;
+        margin-left: 1px;
+    }
+
+    .bottom-left {
+        position: absolute;
+        top: 18%;
+        left: 13%;
+    }
+
+    .bottom-left.form-control textarea{
+        border:none;
+    }
+
+    
+    textarea[class=form-control]:disabled {
+        background: white;
+    }
+</style>
